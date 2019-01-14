@@ -1,15 +1,26 @@
 #include<bits/stdc++.h>
 #include<vector>
+#include<stdio.h>
+#include<stdlib.h>
 using namespace std;
 
 
-struct node
+struct Node
   {
     int data;
-    node *next,*head, *tail;
+    Node *next;
   };
 
+void printList(struct Node *n)
+{
 
+
+  while (n != NULL)
+  {
+     cout<<n->data<<endl;
+     n = n->next;
+  }
+}
 
 
 void display(vector <int> &vec, int n){
@@ -247,10 +258,32 @@ int main()
 {
 
 
-    node *next = NULL;
-    next->head = NULL;
+   struct Node* head = NULL;
+   struct Node* second = NULL;
+   struct Node* third = NULL;
     //next->tail = 12;
 
+  head = (struct Node*)malloc(sizeof(struct Node));
+  second = (struct Node*)malloc(sizeof(struct Node));
+  third = (struct Node*)malloc(sizeof(struct Node));
+
+
+
+  head->data = 1; //assign data in first node
+  head->next = second;
+
+  second->data = 2;  // Link second node with the third node
+  second->next = third;
+
+  third->data = 3; //assign data to third node
+  third->next = NULL;
+
+
+ printList(head);
+
+
+
+/*
     vector <int> vec;
     cout<<"Enter number elemenets \t "<<endl;
 	int n;
@@ -259,7 +292,7 @@ int main()
 	//vec.assign(n,0);
 
 
-/*
+
         for (int i = 1; i <= n; i++) {
         cout<<"Element ["<<i<<"] \n";
         cin>>nr;
